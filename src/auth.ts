@@ -23,10 +23,10 @@ export async function requireAuth(req: AuthRequest, res: Response, next: NextFun
       email: typeof payload.email === "string" ? payload.email : undefined,
       name: typeof payload.name === "string" ? payload.name : undefined
     };
-
-    if (!req.user.email) return res.status(401).json({ message: "Token does not contain a user email." });
+if (!req.user.email) return res.status(401).json({ message: "Token does not contain a user email." });
     next();
   } catch {
     return res.status(401).json({ message: "Invalid or expired token." });
   }
 }
+    
